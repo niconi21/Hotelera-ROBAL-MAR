@@ -45,28 +45,9 @@ CREATE TABLE Cliente(
 	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	apepat VARCHAR(30) NOT NULL,
-	apemat VARCHAR(30) NOT NULL);
-
+	apemat VARCHAR(30) NOT NULL,
+	curp VARCHAR(18) NOT NULL);
 GO
-CREATE TABLE MetodoPago(
-	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
-	cliente INT NOT NULL CONSTRAINT fk_metodoPago_pertenece_cliente REFERENCES Cliente,
-	tipoPago BIT NOT NULL,
-	);
-GO
-CREATE TABLE PagoTarjeta(
-	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
-	metodoPago INT NOT NULL CONSTRAINT fk_PagoTarjeta_pertenece_MetodoPago REFERENCES MetodoPago,
-	numero VARCHAR(19) NOT NULL,
-	fechaExpiracion VARCHAR(5) NOT NULL,
-	ccv INT NOT NULL
-	);
-GO
-CREATE TABLE PagoEfectivo(
-	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
-	metodoPago INT NOT NULL CONSTRAINT kf_PagoTarjeta_pertenece_MetodoPago REFERENCES MetodoPago,
-	cantidad SMALLMONEY NOT NULL);
-Go
 CREATE TABLE Historial(
 	id INT Identity(0,1) PRIMARY KEY NOT NULL,
 	cliente INT NOT NULL CONSTRAINT fk_historial_tiene_cliente REFERENCES Cliente,

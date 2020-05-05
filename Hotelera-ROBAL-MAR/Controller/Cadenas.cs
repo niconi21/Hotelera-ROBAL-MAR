@@ -15,5 +15,9 @@ namespace Controller
         //Cargo de empleados
         public const String GERENTE = "Gerente";
         public const String PERSONAL = "Personal";
+        //Tipos de telefonos
+        
+        public const String CASA = "Casa";
+        
     }
 }

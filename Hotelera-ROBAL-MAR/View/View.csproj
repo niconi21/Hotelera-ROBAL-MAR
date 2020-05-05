@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,11 +51,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Direccion-component.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Direccion-component.Designer.cs">
+      <DependentUpon>Direccion-component.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Habitacion-component.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Components\Habitacion-component.Designer.cs">
       <DependentUpon>Habitacion-component.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Telefono-component.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Telefono-component.Designer.cs">
+      <DependentUpon>Telefono-component.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grafica.Designer.cs">
+      <DependentUpon>Grafica.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -73,6 +92,12 @@
     </Compile>
     <Compile Include="Options\Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Historial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\Personal.cs">
       <SubType>UserControl</SubType>
@@ -94,17 +119,29 @@
     <Compile Include="RegistroPersonal.Designer.cs">
       <DependentUpon>RegistroPersonal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Components\Direccion-component.resx">
+      <DependentUpon>Direccion-component.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Habitacion-component.resx">
       <DependentUpon>Habitacion-component.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\Telefono-component.resx">
+      <DependentUpon>Telefono-component.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafica.resx">
+      <DependentUpon>Grafica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\Personal.resx">
       <DependentUpon>Personal.cs</DependentUpon>

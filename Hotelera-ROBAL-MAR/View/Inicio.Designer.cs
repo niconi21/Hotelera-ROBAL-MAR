@@ -44,6 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.pb_minimizar = new System.Windows.Forms.PictureBox();
             this.pb_cerrar = new System.Windows.Forms.PictureBox();
             this.panel_contenedor = new System.Windows.Forms.Panel();
@@ -93,6 +94,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 75);
             this.panel4.TabIndex = 0;
+            this.panel4.Click += new System.EventHandler(this.label2_Click);
             // 
             // label2
             // 
@@ -104,6 +106,7 @@
             this.label2.Size = new System.Drawing.Size(128, 46);
             this.label2.TabIndex = 4;
             this.label2.Text = "Registro de \r\n   clientes";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel5
             // 
@@ -154,6 +157,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(200, 75);
             this.panel7.TabIndex = 3;
+            this.panel7.Click += new System.EventHandler(this.label4_Click);
             // 
             // label4
             // 
@@ -165,6 +169,7 @@
             this.label4.Size = new System.Drawing.Size(91, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Historial";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel8
             // 
@@ -218,6 +223,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(72)))), ((int)(((byte)(98)))));
+            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.pb_minimizar);
             this.panel2.Controls.Add(this.pb_cerrar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -225,6 +231,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(724, 27);
             this.panel2.TabIndex = 2;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(286, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 18);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Inicio";
             // 
             // pb_minimizar
             // 
@@ -290,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_cerrar)).EndInit();
             this.ResumeLayout(false);
@@ -317,5 +336,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label9;
     }
 }
