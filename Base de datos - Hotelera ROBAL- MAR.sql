@@ -142,13 +142,16 @@ INSERT INTO Habitacion VALUES(507,'Disponible','Individual',500.00,4);
 INSERT INTO Habitacion VALUES(508,'Disponible','Doble',1000.00,4);
 INSERT INTO Habitacion VALUES(509,'Disponible','Individual',500.00,4);
 INSERT INTO Habitacion VALUES(510,'Disponible','Triple',1500.00,4);
+
 select * from personal;
 select * from Direccion;
 SELECT * FROM Telefono;
-SELECT * FROM Piso;
 SELECT * FROM Habitacion;
+SELECT * FROM Piso;
+SELECT * FROM Cliente;
+SELECT * FROM Historial;
+	INSERT INTO Historial VALUES(4,0,89,1500,0,'2020/05/05','2020/06/02');
+	Delete from Cliente;
+	Delete from Historial;
 
-
-	
-	USE OUTDOOR;
-	DROP DATABASE Hotelera_ROBAL_MAR;
+	USE Hotelera_ROBAL_MAR;
