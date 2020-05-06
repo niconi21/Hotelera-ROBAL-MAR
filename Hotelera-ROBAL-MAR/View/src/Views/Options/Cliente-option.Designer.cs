@@ -33,34 +33,37 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_apemat = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_apepat = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_usuario = new System.Windows.Forms.TextBox();
+            this.txt_nombre = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_curp = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cb_habitaciones = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cb_hsbitacion = new System.Windows.Forms.ComboBox();
+            this.lbl_fechaInicial = new System.Windows.Forms.Label();
+            this.tabla_clientes = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_registrarEmpleado = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btn_registrarCliente = new System.Windows.Forms.Button();
+            this.lbl_precio = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Habitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -75,16 +78,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Cliente";
             // 
-            // textBox2
+            // txt_apemat
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(146, 171);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 24);
-            this.textBox2.TabIndex = 45;
+            this.txt_apemat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
+            this.txt_apemat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_apemat.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.txt_apemat.ForeColor = System.Drawing.Color.White;
+            this.txt_apemat.Location = new System.Drawing.Point(146, 171);
+            this.txt_apemat.Name = "txt_apemat";
+            this.txt_apemat.Size = new System.Drawing.Size(239, 24);
+            this.txt_apemat.TabIndex = 45;
             // 
             // pictureBox2
             // 
@@ -107,16 +110,16 @@
             this.label4.TabIndex = 43;
             this.label4.Text = "Apellido \r\nMaterno";
             // 
-            // textBox1
+            // txt_apepat
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(146, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 24);
-            this.textBox1.TabIndex = 42;
+            this.txt_apepat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
+            this.txt_apepat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_apepat.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.txt_apepat.ForeColor = System.Drawing.Color.White;
+            this.txt_apepat.Location = new System.Drawing.Point(146, 109);
+            this.txt_apepat.Name = "txt_apepat";
+            this.txt_apepat.Size = new System.Drawing.Size(239, 24);
+            this.txt_apepat.TabIndex = 42;
             // 
             // pictureBox1
             // 
@@ -139,16 +142,16 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Apellido \r\nPaterno";
             // 
-            // txt_usuario
+            // txt_nombre
             // 
-            this.txt_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
-            this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.txt_usuario.ForeColor = System.Drawing.Color.White;
-            this.txt_usuario.Location = new System.Drawing.Point(146, 50);
-            this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(239, 24);
-            this.txt_usuario.TabIndex = 39;
+            this.txt_nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
+            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.txt_nombre.ForeColor = System.Drawing.Color.White;
+            this.txt_nombre.Location = new System.Drawing.Point(146, 50);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(239, 24);
+            this.txt_nombre.TabIndex = 39;
             // 
             // pictureBox4
             // 
@@ -203,16 +206,6 @@
             this.label7.TabIndex = 46;
             this.label7.Text = "CURP:";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::View.Properties.Resources.usuario;
-            this.pictureBox3.Location = new System.Drawing.Point(420, 44);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 50;
-            this.pictureBox3.TabStop = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -224,37 +217,36 @@
             this.label5.TabIndex = 49;
             this.label5.Text = "Habitación";
             // 
-            // cb_habitaciones
+            // cb_hsbitacion
             // 
-            this.cb_habitaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
-            this.cb_habitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_habitaciones.ForeColor = System.Drawing.SystemColors.Control;
-            this.cb_habitaciones.FormattingEnabled = true;
-            this.cb_habitaciones.Items.AddRange(new object[] {
-            "Personal",
-            "Casa"});
-            this.cb_habitaciones.Location = new System.Drawing.Point(448, 92);
-            this.cb_habitaciones.Name = "cb_habitaciones";
-            this.cb_habitaciones.Size = new System.Drawing.Size(176, 21);
-            this.cb_habitaciones.TabIndex = 70;
+            this.cb_hsbitacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
+            this.cb_hsbitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_hsbitacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.cb_hsbitacion.ForeColor = System.Drawing.SystemColors.Control;
+            this.cb_hsbitacion.FormattingEnabled = true;
+            this.cb_hsbitacion.Location = new System.Drawing.Point(434, 87);
+            this.cb_hsbitacion.Name = "cb_hsbitacion";
+            this.cb_hsbitacion.Size = new System.Drawing.Size(283, 23);
+            this.cb_hsbitacion.TabIndex = 70;
+            this.cb_hsbitacion.SelectedIndexChanged += new System.EventHandler(this.cb_hsbitacion_SelectedIndexChanged);
             // 
-            // label6
+            // lbl_fechaInicial
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(431, 178);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 16);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Fecha de llegada:";
+            this.lbl_fechaInicial.AutoSize = true;
+            this.lbl_fechaInicial.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.lbl_fechaInicial.ForeColor = System.Drawing.Color.White;
+            this.lbl_fechaInicial.Location = new System.Drawing.Point(431, 178);
+            this.lbl_fechaInicial.Name = "lbl_fechaInicial";
+            this.lbl_fechaInicial.Size = new System.Drawing.Size(127, 16);
+            this.lbl_fechaInicial.TabIndex = 71;
+            this.lbl_fechaInicial.Text = "Fecha de llegada:";
             // 
-            // dataGridView1
+            // tabla_clientes
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tabla_clientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
+            this.tabla_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tabla_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tabla_clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(92)))), ((int)(((byte)(122)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
@@ -262,9 +254,15 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 30;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tabla_clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tabla_clientes.ColumnHeadersHeight = 40;
+            this.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tabla_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Habitacion,
+            this.Column4,
+            this.Column3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
@@ -272,12 +270,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 310);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.tabla_clientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.tabla_clientes.EnableHeadersVisualStyles = false;
+            this.tabla_clientes.GridColor = System.Drawing.Color.SteelBlue;
+            this.tabla_clientes.Location = new System.Drawing.Point(6, 325);
+            this.tabla_clientes.Name = "tabla_clientes";
+            this.tabla_clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
@@ -285,10 +283,10 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Tan;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 189);
-            this.dataGridView1.TabIndex = 72;
+            this.tabla_clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.tabla_clientes.RowHeadersVisible = false;
+            this.tabla_clientes.Size = new System.Drawing.Size(504, 189);
+            this.tabla_clientes.TabIndex = 72;
             // 
             // label8
             // 
@@ -307,37 +305,38 @@
             this.btn_registrarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_registrarEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.btn_registrarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btn_registrarEmpleado.Location = new System.Drawing.Point(25, 502);
+            this.btn_registrarEmpleado.Location = new System.Drawing.Point(526, 402);
             this.btn_registrarEmpleado.Name = "btn_registrarEmpleado";
-            this.btn_registrarEmpleado.Size = new System.Drawing.Size(239, 28);
+            this.btn_registrarEmpleado.Size = new System.Drawing.Size(180, 28);
             this.btn_registrarEmpleado.TabIndex = 74;
             this.btn_registrarEmpleado.Text = "Cambiar de habitación";
             this.btn_registrarEmpleado.UseCompatibleTextRendering = true;
             this.btn_registrarEmpleado.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_registrarCliente
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(434, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 28);
-            this.button1.TabIndex = 75;
-            this.button1.Text = "Registrar cliente";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_registrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
+            this.btn_registrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_registrarCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_registrarCliente.ForeColor = System.Drawing.Color.White;
+            this.btn_registrarCliente.Location = new System.Drawing.Point(434, 276);
+            this.btn_registrarCliente.Name = "btn_registrarCliente";
+            this.btn_registrarCliente.Size = new System.Drawing.Size(239, 28);
+            this.btn_registrarCliente.TabIndex = 75;
+            this.btn_registrarCliente.Text = "Registrar cliente";
+            this.btn_registrarCliente.UseVisualStyleBackColor = false;
+            this.btn_registrarCliente.Click += new System.EventHandler(this.btn_registrarCliente_Click);
             // 
-            // label9
+            // lbl_precio
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(431, 131);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 16);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "Precio: $0.0";
+            this.lbl_precio.AutoSize = true;
+            this.lbl_precio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.lbl_precio.ForeColor = System.Drawing.Color.White;
+            this.lbl_precio.Location = new System.Drawing.Point(431, 131);
+            this.lbl_precio.Name = "lbl_precio";
+            this.lbl_precio.Size = new System.Drawing.Size(139, 16);
+            this.lbl_precio.TabIndex = 76;
+            this.lbl_precio.Text = "Precio por día: $0.0";
             // 
             // button2
             // 
@@ -345,13 +344,38 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(434, 502);
+            this.button2.Location = new System.Drawing.Point(526, 455);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(239, 28);
+            this.button2.Size = new System.Drawing.Size(180, 28);
             this.button2.TabIndex = 77;
             this.button2.Text = "Finalizar hospedaje";
             this.button2.UseCompatibleTextRendering = true;
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "CURP";
+            this.Column2.Name = "Column2";
+            // 
+            // Habitacion
+            // 
+            this.Habitacion.HeaderText = "Habitación";
+            this.Habitacion.Name = "Habitacion";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Pago por día";
+            this.Column4.Name = "Column4";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fecha de Inicio";
+            this.Column3.Name = "Column3";
             // 
             // Cliente
             // 
@@ -359,25 +383,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbl_precio);
+            this.Controls.Add(this.btn_registrarCliente);
             this.Controls.Add(this.btn_registrarEmpleado);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cb_habitaciones);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.tabla_clientes);
+            this.Controls.Add(this.lbl_fechaInicial);
+            this.Controls.Add(this.cb_hsbitacion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_curp);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_apemat);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_apepat);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_usuario);
+            this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -387,8 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_clientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,27 +419,31 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_apemat;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_apepat;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_usuario;
+        private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_curp;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cb_habitaciones;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cb_hsbitacion;
+        private System.Windows.Forms.Label lbl_fechaInicial;
+        private System.Windows.Forms.DataGridView tabla_clientes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_registrarEmpleado;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_registrarCliente;
+        private System.Windows.Forms.Label lbl_precio;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Habitacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

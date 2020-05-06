@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using View.src.Tools;
 using View.src.Tools.Objects;
 
@@ -123,6 +124,155 @@ namespace View.src.DataBase
                     int row = command.ExecuteNonQuery();
                     if (row > 0)
                         return true;
+                    return false;
+                }
+            }
+        }
+        internal static List<Habitacion> getHabitacionesDisponibles()
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Habitacion WHERE estatus = @estatus";
+                    command.Parameters.AddWithValue("@estatus", Cadenas.DISPONIBLE);
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    List<Habitacion> habitaciones = null;
+                    if (reader.HasRows)
+                    {
+                        habitaciones = new List<Habitacion>();
+                        while (reader.Read())
+                        {
+                            habitaciones.Add(new Habitacion
+                            {
+                                ID = reader.GetInt32(0),
+                                Numero = reader.GetInt32(1),
+                                Estatus = reader.GetString(2),
+                                Tipo = reader.GetString(3),
+                                Precio = (float)reader.GetSqlMoney(4).ToDouble(),
+                                Piso = reader.GetInt32(5)
+                            });
+                        }
+                        return habitaciones;
+                    }
+                    return habitaciones;
+                }
+            }
+        }
+        internal static bool InsertCliente(Cliente cliente)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "INSERT INTO Cliente VALUES(@nombre,@apepat,@apemat,@curp)";
+                    command.Parameters.AddWithValue("@nombre", cliente.Nombre);
+                    command.Parameters.AddWithValue("@apepat", cliente.Apepat);
+                    command.Parameters.AddWithValue("@apemat", cliente.Apemat);
+                    command.Parameters.AddWithValue("@curp", cliente.Curp);
+                    command.CommandType = CommandType.Text;
+                    var rows = command.ExecuteNonQuery();
+                    
+                    if (rows>0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+        internal static List<Cliente> getClientes()
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Cliente";
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    List<Cliente> clientes = null;
+                    if (reader.HasRows)
+                    {
+                        clientes = new List<Cliente>();
+                        while (reader.Read())
+                        {
+                            clientes.Add(new Cliente
+                            {
+                                ID = reader.GetInt32(0),
+                                Nombre = reader.GetString(1),
+                                Apepat = reader.GetString(2),
+                                Apemat = reader.GetString(3),
+                                Curp = reader.GetString(4)
+                            });
+                        }
+                        return clientes;
+                    }
+                    return clientes;
+                }
+            }
+        }
+        internal static Cliente getCliente(Cliente cliente)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Cliente WHERE curp = @curp";
+                    command.Parameters.AddWithValue("@curp", cliente.Curp);
+                    
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    Cliente clienteDB = null;
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        clienteDB = new Cliente();
+
+                        clienteDB.ID = reader.GetInt32(0);
+                            clienteDB.Nombre = reader.GetString(1);
+                            clienteDB.Apepat = reader.GetString(2);
+                            clienteDB.Apemat = reader.GetString(3);
+                            clienteDB.Curp = reader.GetString(4);
+                        
+
+                        return clienteDB;
+                    }
+                    return clienteDB;
+                }
+            }
+        }
+
+        internal static bool InsertHistorial(Historial historial)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "INSERT INTO Historial VALUES(@cliente,@personal,@habitacion,@pagoDia,@montoTotal,@fechaInicio,null)";
+                    command.Parameters.AddWithValue("@cliente", historial.Cliente);
+                    command.Parameters.AddWithValue("@personal", historial.Personal);
+                    command.Parameters.AddWithValue("@habitacion", historial.Habiacion);
+                    command.Parameters.AddWithValue("@pagoDia", historial.PagoDia);
+                    command.Parameters.AddWithValue("@montoTotal", historial.MontoTotal);
+                    command.Parameters.AddWithValue("@fechaInicio", historial.FechaInicio);
+                    command.CommandType = CommandType.Text;
+                    var rows = command.ExecuteNonQuery();
+
+                    if (rows > 0)
+                    {
+                        return true;
+                    }
                     return false;
                 }
             }
