@@ -81,6 +81,13 @@ namespace View
 
         private void panel9_Click(object sender, EventArgs e)
         {
+            UsuarioCache.Nombre = "";
+            UsuarioCache.Apepat= "";
+            UsuarioCache.Apemat = "";
+            UsuarioCache.Clave = "";
+            UsuarioCache.Usuaio = "";
+            UsuarioCache.TipoPersonal = 1;
+            UsuarioCache.ID = -1;
             Login login = new Login();
             login.Show();
             this.Dispose();

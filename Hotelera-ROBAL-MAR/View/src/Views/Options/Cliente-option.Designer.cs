@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,21 +50,23 @@
             this.cb_hsbitacion = new System.Windows.Forms.ComboBox();
             this.lbl_fechaInicial = new System.Windows.Forms.Label();
             this.tabla_clientes = new System.Windows.Forms.DataGridView();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagoDiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historialClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
-            this.btn_registrarEmpleado = new System.Windows.Forms.Button();
+            this.btn_actualizarCliente = new System.Windows.Forms.Button();
             this.btn_registrarCliente = new System.Windows.Forms.Button();
             this.lbl_precio = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Habitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_finalizarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_clientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historialClienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -243,6 +246,7 @@
             // 
             // tabla_clientes
             // 
+            this.tabla_clientes.AutoGenerateColumns = false;
             this.tabla_clientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
             this.tabla_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tabla_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -258,11 +262,12 @@
             this.tabla_clientes.ColumnHeadersHeight = 40;
             this.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tabla_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Habitacion,
-            this.Column4,
-            this.Column3});
+            this.clienteDataGridViewTextBoxColumn,
+            this.curpDataGridViewTextBoxColumn,
+            this.habitacionDataGridViewTextBoxColumn,
+            this.pagoDiaDataGridViewTextBoxColumn,
+            this.fechaInicioDataGridViewTextBoxColumn});
+            this.tabla_clientes.DataSource = this.historialClienteBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
@@ -280,13 +285,47 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(63)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Tan;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla_clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.tabla_clientes.RowHeadersVisible = false;
-            this.tabla_clientes.Size = new System.Drawing.Size(504, 189);
+            this.tabla_clientes.Size = new System.Drawing.Size(542, 189);
             this.tabla_clientes.TabIndex = 72;
+            this.tabla_clientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_clientes_CellClick);
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            // 
+            // curpDataGridViewTextBoxColumn
+            // 
+            this.curpDataGridViewTextBoxColumn.DataPropertyName = "Curp";
+            this.curpDataGridViewTextBoxColumn.HeaderText = "Curp";
+            this.curpDataGridViewTextBoxColumn.Name = "curpDataGridViewTextBoxColumn";
+            // 
+            // habitacionDataGridViewTextBoxColumn
+            // 
+            this.habitacionDataGridViewTextBoxColumn.DataPropertyName = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.HeaderText = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.Name = "habitacionDataGridViewTextBoxColumn";
+            // 
+            // pagoDiaDataGridViewTextBoxColumn
+            // 
+            this.pagoDiaDataGridViewTextBoxColumn.DataPropertyName = "PagoDia";
+            this.pagoDiaDataGridViewTextBoxColumn.HeaderText = "PagoDia";
+            this.pagoDiaDataGridViewTextBoxColumn.Name = "pagoDiaDataGridViewTextBoxColumn";
+            // 
+            // fechaInicioDataGridViewTextBoxColumn
+            // 
+            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
+            // 
+            // historialClienteBindingSource
+            // 
+            this.historialClienteBindingSource.DataSource = typeof(View.src.Tools.Objects.HistorialCliente);
             // 
             // label8
             // 
@@ -295,23 +334,24 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(8, 284);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(214, 23);
+            this.label8.Size = new System.Drawing.Size(362, 23);
             this.label8.TabIndex = 73;
-            this.label8.Text = "Clientes registrados:";
+            this.label8.Text = "Clientes registrados con habitacion:";
             // 
-            // btn_registrarEmpleado
+            // btn_actualizarCliente
             // 
-            this.btn_registrarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(168)))), ((int)(((byte)(15)))));
-            this.btn_registrarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_registrarEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.btn_registrarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btn_registrarEmpleado.Location = new System.Drawing.Point(526, 402);
-            this.btn_registrarEmpleado.Name = "btn_registrarEmpleado";
-            this.btn_registrarEmpleado.Size = new System.Drawing.Size(180, 28);
-            this.btn_registrarEmpleado.TabIndex = 74;
-            this.btn_registrarEmpleado.Text = "Cambiar de habitación";
-            this.btn_registrarEmpleado.UseCompatibleTextRendering = true;
-            this.btn_registrarEmpleado.UseVisualStyleBackColor = false;
+            this.btn_actualizarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(168)))), ((int)(((byte)(15)))));
+            this.btn_actualizarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_actualizarCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_actualizarCliente.ForeColor = System.Drawing.Color.White;
+            this.btn_actualizarCliente.Location = new System.Drawing.Point(580, 388);
+            this.btn_actualizarCliente.Name = "btn_actualizarCliente";
+            this.btn_actualizarCliente.Size = new System.Drawing.Size(126, 44);
+            this.btn_actualizarCliente.TabIndex = 74;
+            this.btn_actualizarCliente.Text = "Cambiar de habitación";
+            this.btn_actualizarCliente.UseCompatibleTextRendering = true;
+            this.btn_actualizarCliente.UseVisualStyleBackColor = false;
+            this.btn_actualizarCliente.Click += new System.EventHandler(this.btn_actualizarCliente_Click);
             // 
             // btn_registrarCliente
             // 
@@ -338,54 +378,30 @@
             this.lbl_precio.TabIndex = 76;
             this.lbl_precio.Text = "Precio por día: $0.0";
             // 
-            // button2
+            // btn_finalizarCliente
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(61)))), ((int)(((byte)(15)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(526, 455);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 28);
-            this.button2.TabIndex = 77;
-            this.button2.Text = "Finalizar hospedaje";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "CURP";
-            this.Column2.Name = "Column2";
-            // 
-            // Habitacion
-            // 
-            this.Habitacion.HeaderText = "Habitación";
-            this.Habitacion.Name = "Habitacion";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Pago por día";
-            this.Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha de Inicio";
-            this.Column3.Name = "Column3";
+            this.btn_finalizarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(61)))), ((int)(((byte)(15)))));
+            this.btn_finalizarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_finalizarCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_finalizarCliente.ForeColor = System.Drawing.Color.White;
+            this.btn_finalizarCliente.Location = new System.Drawing.Point(580, 455);
+            this.btn_finalizarCliente.Name = "btn_finalizarCliente";
+            this.btn_finalizarCliente.Size = new System.Drawing.Size(126, 41);
+            this.btn_finalizarCliente.TabIndex = 77;
+            this.btn_finalizarCliente.Text = "Finalizar hospedaje";
+            this.btn_finalizarCliente.UseCompatibleTextRendering = true;
+            this.btn_finalizarCliente.UseVisualStyleBackColor = false;
+            this.btn_finalizarCliente.Click += new System.EventHandler(this.btn_finalizarCliente_Click);
             // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_finalizarCliente);
             this.Controls.Add(this.lbl_precio);
             this.Controls.Add(this.btn_registrarCliente);
-            this.Controls.Add(this.btn_registrarEmpleado);
+            this.Controls.Add(this.btn_actualizarCliente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tabla_clientes);
             this.Controls.Add(this.lbl_fechaInicial);
@@ -411,6 +427,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_clientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historialClienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,14 +453,15 @@
         private System.Windows.Forms.Label lbl_fechaInicial;
         private System.Windows.Forms.DataGridView tabla_clientes;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_registrarEmpleado;
+        private System.Windows.Forms.Button btn_actualizarCliente;
         private System.Windows.Forms.Button btn_registrarCliente;
         private System.Windows.Forms.Label lbl_precio;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Habitacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btn_finalizarCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn habitacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pagoDiaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource historialClienteBindingSource;
     }
 }

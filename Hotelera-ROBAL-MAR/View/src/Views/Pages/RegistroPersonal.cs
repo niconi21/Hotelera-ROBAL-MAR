@@ -9,14 +9,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using View.Components;
+using View.src.DataBase;
+using View.src.Tools;
+using View.src.Tools.Objects;
 
 namespace View
 {
     public partial class RegistroPersonal : Form
     {
-        public RegistroPersonal()
+        private bool actualizado = false;
+        private Personal _personal;
+        private View.Options.Personal _option;
+        public RegistroPersonal(View.Options.Personal option ,Personal personal = null)
         {
             InitializeComponent();
+            _option = option;
+            if (personal != null)
+            {
+                _personal = personal;
+                txt_nombre.Text = _personal.Nombre;
+                txt_apepat.Text = _personal.Apepat;
+                txt_apemat.Text = _personal.Apemat;
+                txt_usuario.Text = _personal.Usuaio;
+                txt_clave.Text = _personal.Clave;
+                txt_curp.Text = _personal.Curp;
+                cb_personal.SelectedIndex = _personal.TipoPersonal;
+                actualizado = true;
+            }
         }
 
         private void pb_cerrar_Click(object sender, EventArgs e)
@@ -40,16 +59,57 @@ namespace View
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btn_registrarEmpleado_Click(object sender, EventArgs e)
-        {
-            Direccion_component direccion = new Direccion_component();
-            this.flowLayout_direcciones.Controls.Add(direccion);
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_registrar_Click(object sender, EventArgs e)
         {
-            Telefono_component telefono = new Telefono_component();
-            this.flowLayout_telefonos.Controls.Add(telefono);
+            try
+            {
+                if (!actualizado)
+                {
+                    Personal personal = new Personal
+                    {
+                        TipoPersonal = cb_personal.SelectedIndex,
+                        Nombre = txt_nombre.Text,
+                        Apepat = txt_apepat.Text,
+                        Apemat = txt_apemat.Text,
+                        Usuaio = txt_usuario.Text,
+                        Clave = txt_clave.Text,
+                        Curp = txt_curp.Text
+                    };
+
+                    if (!DataBase.InsertPersonal(personal))
+                        MessageBox.Show("El empleado no fue registrado");
+                    else
+                        MessageBox.Show("El empleado fue registrado");
+                    _option.llenarPersonal();
+                    this.Dispose();
+                }
+                else
+                {
+                    _personal = new Personal
+                    {
+                        ID = _personal.ID,
+                        TipoPersonal = cb_personal.SelectedIndex,
+                        Nombre = txt_nombre.Text,
+                        Apepat = txt_apepat.Text,
+                        Apemat = txt_apemat.Text,
+                        Usuaio = txt_usuario.Text,
+                        Clave = txt_clave.Text,
+                        Curp = txt_curp.Text
+                    };
+                    if (!DataBase.updateEmpleado(_personal))
+                        MessageBox.Show("El empleado no fue actualizado");
+                    else
+                        MessageBox.Show("El empleado fue actualizado");
+                    _option.llenarPersonal();
+                    this.Dispose();
+                }
+                
+            }
+            catch(HoteleraException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
 

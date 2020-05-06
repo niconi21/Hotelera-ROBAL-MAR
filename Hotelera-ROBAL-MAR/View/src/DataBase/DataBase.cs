@@ -107,6 +107,36 @@ namespace View.src.DataBase
                 }
             }
         }
+        public static Habitacion getHabitacion(int numero)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Habitacion WHERE numero = @numero";
+                    command.Parameters.AddWithValue("@numero", numero);
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    Habitacion habitacion = null;
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        habitacion = new Habitacion
+                        {
+                            ID = reader.GetInt32(0),
+                            Numero = reader.GetInt32(1),
+                            Estatus = reader.GetString(2),
+                            Tipo = reader.GetString(3),
+                            Precio = (float)reader.GetSqlMoney(4).ToDouble(),
+                            Piso = reader.GetInt32(5)
+                        };
+                    }
+                    return habitacion;
+                }
+            }
+        }
         public static bool updateHabitaciones(Habitacion habitacion)
         {
             using (var connection = new SqlConnection(_stringConnection))
@@ -128,7 +158,7 @@ namespace View.src.DataBase
                 }
             }
         }
-        internal static List<Habitacion> getHabitacionesDisponibles()
+        public static List<Habitacion> getHabitacionesDisponibles()
         {
             using (var connection = new SqlConnection(_stringConnection))
             {
@@ -162,7 +192,7 @@ namespace View.src.DataBase
                 }
             }
         }
-        internal static bool InsertCliente(Cliente cliente)
+        public static bool InsertCliente(Cliente cliente)
         {
             using (var connection = new SqlConnection(_stringConnection))
             {
@@ -186,7 +216,7 @@ namespace View.src.DataBase
                 }
             }
         }
-        internal static List<Cliente> getClientes()
+        public static List<HistorialCliente> getClientes()
         {
             using (var connection = new SqlConnection(_stringConnection))
             {
@@ -194,31 +224,43 @@ namespace View.src.DataBase
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM Cliente";
+                    command.CommandText = "SELECT " +
+                                            "Cliente.id," +
+                                            "Cliente.nombre," +
+                                            "Cliente.apepat," +
+                                            "Cliente.apemat," +
+                                            "Cliente.curp, " +
+                                            "Habitacion.numero," +
+                                            "Historial.pagoPorDia," +
+                                            "Historial.fechaInicio " +
+                                            "FROM Historial " +
+                                            "INNER JOIN Cliente ON Historial.Cliente = Cliente.id " +
+                                            "INNER JOIN Habitacion ON Historial.habitacion = Habitacion.id " +
+                                            "WHERE Historial.fechaFinal IS NULL";
                     command.CommandType = CommandType.Text;
                     var reader = command.ExecuteReader();
-                    List<Cliente> clientes = null;
+                    List<HistorialCliente> historial = null;
                     if (reader.HasRows)
                     {
-                        clientes = new List<Cliente>();
+                        historial = new List<HistorialCliente>();
                         while (reader.Read())
                         {
-                            clientes.Add(new Cliente
+                            historial.Add(new HistorialCliente
                             {
                                 ID = reader.GetInt32(0),
-                                Nombre = reader.GetString(1),
-                                Apepat = reader.GetString(2),
-                                Apemat = reader.GetString(3),
-                                Curp = reader.GetString(4)
+                                cliente = reader.GetString(1) +" "+reader.GetString(2) + " " + reader.GetString(3),
+                                Curp = reader.GetString(4),
+                                Habitacion = reader.GetInt32(5),
+                                PagoDia = ((float)reader.GetSqlMoney(6).ToDouble()).ToString(),
+                                FechaInicio = reader.GetDateTime(7).ToShortDateString()
                             });
                         }
-                        return clientes;
                     }
-                    return clientes;
+                    return historial;
                 }
             }
         }
-        internal static Cliente getCliente(Cliente cliente)
+        public static Cliente getCliente(Cliente cliente)
         {
             using (var connection = new SqlConnection(_stringConnection))
             {
@@ -250,8 +292,7 @@ namespace View.src.DataBase
                 }
             }
         }
-
-        internal static bool InsertHistorial(Historial historial)
+        public static bool InsertHistorial(Historial historial)
         {
             using (var connection = new SqlConnection(_stringConnection))
             {
@@ -273,6 +314,154 @@ namespace View.src.DataBase
                     {
                         return true;
                     }
+                    return false;
+                }
+            }
+        }
+        public static Historial getHistorial(int cliente, int habitacion)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Historial WHERE cliente = @cliente AND habitacion = @habitacion";
+                    command.Parameters.AddWithValue("@cliente", cliente);
+                    command.Parameters.AddWithValue("@habitacion", habitacion);
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    Historial historial = null;
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        historial = new Historial();
+                        historial.ID = reader.GetInt32(0);
+                        historial.Cliente = reader.GetInt32(1);
+                        historial.Personal= reader.GetInt32(2);
+                        historial.Habiacion = cliente = reader.GetInt32(3);
+                        historial.PagoDia = (float)reader.GetSqlMoney(4).ToDouble();
+                        historial.MontoTotal = (float)reader.GetSqlMoney(5).ToDouble();
+                        historial.FechaInicio = reader.GetDateTime(6);
+                        try
+                        {
+                            historial.FechaFinal = reader.GetDateTime(7);
+                        }
+                        catch { }
+
+                    }
+                    return historial;
+                }
+            }
+        }
+        public static bool updateHistorial(Historial historial, bool esFinalizar=false)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    if (esFinalizar)
+                    {
+                        command.CommandText = "UPDATE Historial SET habitacion = @habitacion, montoTotal = @montoTotal, fechaFinal = @fechaFinal WHERE id = @id";
+                        command.Parameters.AddWithValue("@fechaFinal", historial.FechaFinal);
+                    }
+                    else
+                        command.CommandText = "UPDATE Historial SET habitacion = @habitacion, montoTotal = @montoTotal, fechaFinal = null WHERE id = @id";
+                    command.Parameters.AddWithValue("@habitacion", historial.Habiacion);
+                    command.Parameters.AddWithValue("@montoTotal", historial.MontoTotal);
+                    
+                    command.Parameters.AddWithValue("@id", historial.ID);
+                    command.CommandType = CommandType.Text;
+                    var rows = command.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+        public static bool InsertPersonal(Personal personal)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "INSERT INTO Personal VALUES(@tipo,@nombre,@apepat,@apemat,@usuario,@clave,@curp)";
+                    command.Parameters.AddWithValue("@tipo", personal.TipoPersonal);
+                    command.Parameters.AddWithValue("@nombre", personal.Nombre);
+                    command.Parameters.AddWithValue("@apepat", personal.Apepat);
+                    command.Parameters.AddWithValue("@apemat", personal.Apemat);
+                    command.Parameters.AddWithValue("@usuario", personal.Usuaio);
+                    command.Parameters.AddWithValue("@clave", personal.Clave);
+                    command.Parameters.AddWithValue("@curp", personal.Curp);
+                    command.CommandType = CommandType.Text;
+                    var rows = command.ExecuteNonQuery();
+                    if (rows > 0)
+                        return true;
+                    return false;
+                }
+            }
+        }
+        public static List<Personal> getEmpleados()
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM Personal";
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    List<Personal> personal = null;
+                    if (reader.HasRows)
+                    {
+                        personal = new List<Personal>();
+                        while (reader.Read())
+                        {
+                            personal.Add(new Personal
+                            {
+                                ID = reader.GetInt32(0),
+                                TipoPersonal = reader.GetInt32(1),
+                                Nombre = reader.GetString(2),
+                                Apepat = reader.GetString(3),
+                                Apemat = reader.GetString(4),
+                                Usuaio = reader.GetString(5),
+                                Clave = reader.GetString(6),
+                                Curp = reader.GetString(7),
+                            });
+                        }
+                    }
+                    return personal;
+                }
+            }
+        }
+        public static bool updateEmpleado(Personal personal)
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Personal SET tipoPersonal= @tipo, nombre = @nombre, apepat=@apepat, apemat=@apemat, usuario=@usuario, clave = @clave, curp=@curp WHERE id=@id";
+                    command.Parameters.AddWithValue("@id", personal.ID);
+                    command.Parameters.AddWithValue("@tipo", personal.TipoPersonal);
+                    command.Parameters.AddWithValue("@nombre", personal.Nombre);
+                    command.Parameters.AddWithValue("@apepat", personal.Apepat);
+                    command.Parameters.AddWithValue("@apemat", personal.Apemat);
+                    command.Parameters.AddWithValue("@usuario", personal.Usuaio);
+                    command.Parameters.AddWithValue("@clave", personal.Clave);
+                    command.Parameters.AddWithValue("@curp", personal.Curp);
+                    command.CommandType = CommandType.Text;
+                    int row = command.ExecuteNonQuery();
+                    if (row > 0)
+                        return true;
                     return false;
                 }
             }

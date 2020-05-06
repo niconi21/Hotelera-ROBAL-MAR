@@ -45,19 +45,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pb_minimizar = new System.Windows.Forms.PictureBox();
             this.pb_cerrar = new System.Windows.Forms.PictureBox();
-            this.flowLayout_direcciones = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_registrarEmpleado = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flowLayout_telefonos = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_registrar = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cb_personal = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_cerrar)).BeginInit();
@@ -67,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_curp
@@ -99,6 +97,7 @@
             this.txt_clave.ForeColor = System.Drawing.Color.White;
             this.txt_clave.Location = new System.Drawing.Point(540, 105);
             this.txt_clave.Name = "txt_clave";
+            this.txt_clave.PasswordChar = '*';
             this.txt_clave.Size = new System.Drawing.Size(239, 24);
             this.txt_clave.TabIndex = 42;
             // 
@@ -210,7 +209,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 26);
+            this.panel1.Size = new System.Drawing.Size(829, 26);
             this.panel1.TabIndex = 49;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -230,7 +229,7 @@
             this.pb_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_minimizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.pb_minimizar.Image = global::View.Properties.Resources.minimizar;
-            this.pb_minimizar.Location = new System.Drawing.Point(762, 0);
+            this.pb_minimizar.Location = new System.Drawing.Point(779, 0);
             this.pb_minimizar.Name = "pb_minimizar";
             this.pb_minimizar.Size = new System.Drawing.Size(25, 26);
             this.pb_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -243,7 +242,7 @@
             this.pb_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_cerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.pb_cerrar.Image = global::View.Properties.Resources.cerrar;
-            this.pb_cerrar.Location = new System.Drawing.Point(787, 0);
+            this.pb_cerrar.Location = new System.Drawing.Point(804, 0);
             this.pb_cerrar.Name = "pb_cerrar";
             this.pb_cerrar.Size = new System.Drawing.Size(25, 26);
             this.pb_cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,86 +250,19 @@
             this.pb_cerrar.TabStop = false;
             this.pb_cerrar.Click += new System.EventHandler(this.pb_cerrar_Click);
             // 
-            // flowLayout_direcciones
+            // btn_registrar
             // 
-            this.flowLayout_direcciones.AutoScroll = true;
-            this.flowLayout_direcciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayout_direcciones.Location = new System.Drawing.Point(12, 250);
-            this.flowLayout_direcciones.Name = "flowLayout_direcciones";
-            this.flowLayout_direcciones.Size = new System.Drawing.Size(778, 166);
-            this.flowLayout_direcciones.TabIndex = 50;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(24, 224);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 23);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "Dirección";
-            // 
-            // btn_registrarEmpleado
-            // 
-            this.btn_registrarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
-            this.btn_registrarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_registrarEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.btn_registrarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btn_registrarEmpleado.Location = new System.Drawing.Point(661, 422);
-            this.btn_registrarEmpleado.Name = "btn_registrarEmpleado";
-            this.btn_registrarEmpleado.Size = new System.Drawing.Size(143, 28);
-            this.btn_registrarEmpleado.TabIndex = 52;
-            this.btn_registrarEmpleado.Text = "Agregar Dirección";
-            this.btn_registrarEmpleado.UseVisualStyleBackColor = false;
-            this.btn_registrarEmpleado.Click += new System.EventHandler(this.btn_registrarEmpleado_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(661, 641);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 28);
-            this.button1.TabIndex = 55;
-            this.button1.Text = "Agregar Telefono";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(24, 443);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 23);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Telefono:";
-            // 
-            // flowLayout_telefonos
-            // 
-            this.flowLayout_telefonos.AutoScroll = true;
-            this.flowLayout_telefonos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayout_telefonos.Location = new System.Drawing.Point(12, 469);
-            this.flowLayout_telefonos.Name = "flowLayout_telefonos";
-            this.flowLayout_telefonos.Size = new System.Drawing.Size(778, 166);
-            this.flowLayout_telefonos.TabIndex = 53;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(317, 703);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 28);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "Registrar Empleado";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
+            this.btn_registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_registrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_registrar.ForeColor = System.Drawing.Color.White;
+            this.btn_registrar.Location = new System.Drawing.Point(297, 285);
+            this.btn_registrar.Name = "btn_registrar";
+            this.btn_registrar.Size = new System.Drawing.Size(235, 28);
+            this.btn_registrar.TabIndex = 56;
+            this.btn_registrar.Text = "Registrar Empleado";
+            this.btn_registrar.UseVisualStyleBackColor = false;
+            this.btn_registrar.Click += new System.EventHandler(this.btn_registrar_Click);
             // 
             // pictureBox6
             // 
@@ -392,20 +324,52 @@
             this.pictureBox4.TabIndex = 29;
             this.pictureBox4.TabStop = false;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::View.Properties.Resources.usuario;
+            this.pictureBox7.Location = new System.Drawing.Point(172, 215);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 58;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(208, 215);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(191, 23);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "Tipo de empleado:";
+            // 
+            // cb_personal
+            // 
+            this.cb_personal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(74)))), ((int)(((byte)(101)))));
+            this.cb_personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_personal.ForeColor = System.Drawing.SystemColors.Control;
+            this.cb_personal.FormattingEnabled = true;
+            this.cb_personal.Items.AddRange(new object[] {
+            "Gerente",
+            "Personal"});
+            this.cb_personal.Location = new System.Drawing.Point(293, 241);
+            this.cb_personal.Name = "cb_personal";
+            this.cb_personal.Size = new System.Drawing.Size(239, 21);
+            this.cb_personal.TabIndex = 72;
+            // 
             // RegistroPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(89)))), ((int)(((byte)(120)))));
-            this.ClientSize = new System.Drawing.Size(829, 484);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.flowLayout_telefonos);
-            this.Controls.Add(this.btn_registrarEmpleado);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.flowLayout_direcciones);
+            this.ClientSize = new System.Drawing.Size(829, 334);
+            this.Controls.Add(this.cb_personal);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btn_registrar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_curp);
             this.Controls.Add(this.pictureBox6);
@@ -440,6 +404,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,13 +433,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pb_minimizar;
         private System.Windows.Forms.PictureBox pb_cerrar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayout_direcciones;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_registrarEmpleado;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayout_telefonos;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_registrar;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cb_personal;
     }
 }

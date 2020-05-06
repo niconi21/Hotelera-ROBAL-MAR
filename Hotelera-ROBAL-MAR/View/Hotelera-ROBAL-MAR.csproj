@@ -55,12 +55,11 @@
     <Compile Include="src\Tools\Cadenas.cs" />
     <Compile Include="src\Tools\HoteleraException.cs" />
     <Compile Include="src\Tools\Objects\Cliente.cs" />
-    <Compile Include="src\Tools\Objects\Direccion.cs" />
     <Compile Include="src\Tools\Objects\Habitacion.cs" />
     <Compile Include="src\Tools\Objects\Historial.cs" />
+    <Compile Include="src\Tools\Objects\HistorialCliente.cs" />
     <Compile Include="src\Tools\Objects\Personal.cs" />
     <Compile Include="src\Tools\Objects\Piso.cs" />
-    <Compile Include="src\Tools\Objects\Telefono.cs" />
     <Compile Include="src\Tools\UsuarioCache.cs" />
     <Compile Include="src\Views\Pages\ActualizarHabitacion.cs">
       <SubType>Form</SubType>
@@ -68,23 +67,17 @@
     <Compile Include="src\Views\Pages\ActualizarHabitacion.Designer.cs">
       <DependentUpon>ActualizarHabitacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Views\Components\Direccion-component.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="src\Views\Components\Direccion-component.Designer.cs">
-      <DependentUpon>Direccion-component.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Views\Components\Habitacion-component.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="src\Views\Components\Habitacion-component.Designer.cs">
       <DependentUpon>Habitacion-component.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Views\Components\Telefono-component.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="src\Views\Pages\ClienteFecha.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Views\Components\Telefono-component.Designer.cs">
-      <DependentUpon>Telefono-component.cs</DependentUpon>
+    <Compile Include="src\Views\Pages\ClienteFecha.Designer.cs">
+      <DependentUpon>ClienteFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Views\Pages\Grafica.cs">
       <SubType>Form</SubType>
@@ -139,14 +132,11 @@
     <EmbeddedResource Include="src\Views\Pages\ActualizarHabitacion.resx">
       <DependentUpon>ActualizarHabitacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Views\Components\Direccion-component.resx">
-      <DependentUpon>Direccion-component.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="src\Views\Components\Habitacion-component.resx">
       <DependentUpon>Habitacion-component.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Views\Components\Telefono-component.resx">
-      <DependentUpon>Telefono-component.cs</DependentUpon>
+    <EmbeddedResource Include="src\Views\Pages\ClienteFecha.resx">
+      <DependentUpon>ClienteFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Views\Pages\Form1.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -183,6 +173,8 @@
       <DependentUpon>RegistroPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\View.src.Tools.Objects.HistorialCliente.datasource" />
+    <None Include="Properties\DataSources\View.src.Tools.Objects.Personal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -271,9 +263,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

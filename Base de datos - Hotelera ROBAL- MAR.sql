@@ -24,25 +24,6 @@ CREATE TABLE Personal(
 	clave VARCHAR(30) NOT NULL,
 	curp VARCHAR(18) NOT NULL);
 GO
-Create table Direccion(
-	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
-	Personal INT NOT NULL CONSTRAINT fk_direccion_pertenece_Personal REFERENCES Personal,
-	ciudad VARCHAR(30) NOT NULL,
-	colonia VARCHAR(30) NOT NULL,
-	calle VARCHAR(30) NOT NULL,
-	numInt Varchar(10) NOT NULL,
-	numExt Varchar(10),
-	referencias VARCHAR(100) NOT NULL,
-	cp VARCHAR(8) NOT NULL)
-GO
-
-Go
-CREATE TABLE Telefono(
-	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
-	tipoTelefono VARCHAR(10) NOT NULL,
-	telefono VARCHAR(12) NOT NULL,
-	Personal INT NOT NULL CONSTRAINT fk_telefono_pertenece_Personal REFERENCES Personal);
-GO
 CREATE TABLE Cliente(
 	id INT IDENTITY(0,1) PRIMARY KEY NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
@@ -150,8 +131,26 @@ SELECT * FROM Habitacion;
 SELECT * FROM Piso;
 SELECT * FROM Cliente;
 SELECT * FROM Historial;
-	INSERT INTO Historial VALUES(4,0,89,1500,0,'2020/05/05','2020/06/02');
-	Delete from Cliente;
-	Delete from Historial;
 
+SELECT 
+	Cliente.id,
+	Cliente.nombre, 
+	Cliente.apepat, 
+	Cliente.apemat, 
+	Cliente.curp, 
+	Habitacion.numero,
+	Historial.pagoPorDia,
+	Historial.fechaInicio
+	FROM Historial 
+	INNER JOIN Cliente ON Historial.Cliente = Cliente.id
+	INNER JOIN Habitacion ON Historial.habitacion = Habitacion.id
+	WHERE Historial.fechaFinal IS NULL;
+
+		Delete from Historial;
+		Delete from Cliente;
+		UPDATE Habitacion set estatus ='DIsponible';
+	
+	USE OUTDOOR;
 	USE Hotelera_ROBAL_MAR;
+	Drop database Hotelera_ROBAL_MAR;
+	

@@ -14,7 +14,7 @@ namespace View.src.Tools.Objects
         public int Habiacion { get; set; }
         public float PagoDia { get; set; }
         public float MontoTotal { get; set; }
-        public String FechaInicio { get; set; }
-        public String FechaFinal{ get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFinal { get; set; }
     }
 }

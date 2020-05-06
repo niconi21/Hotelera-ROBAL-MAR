@@ -25,9 +25,12 @@ namespace View.Options
         private void llenarPiso()
         {
             var pisos = DataBase.getPisos();
-            foreach (var item in pisos)
+            if (pisos != null)
             {
-                this.cb_pisos.Items.Add(item.Numero);
+                foreach (var item in pisos)
+                {
+                    this.cb_pisos.Items.Add(item.Numero);
+                }
             }
         }
 
