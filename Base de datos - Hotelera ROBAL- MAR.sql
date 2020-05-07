@@ -43,10 +43,10 @@ CREATE TABLE Historial(
 
 /* usuarios*/
 	/* Gerente*/
-INSERT INTO Personal VALUES (0,'Nicolas','Moreno','Dur·n','niconi','niconi','MODN000821HPLRRCA7');
+INSERT INTO Personal VALUES (0,'Nicolas','Moreno','Dur√°n','niconi','niconi','MODN000821HPLRRCA7');
 	/* Personal*/
 INSERT INTO Personal VALUES (1,'Francisto Enrique','Alberto','Cordova','francisco','francisco','MODN000821HPLRRCA7');
-INSERT INTO Personal VALUES (1,'Josue Jared','Camacho','Rolon','josue','jose','MODN000821HPLRRCA7');
+INSERT INTO Personal VALUES (1,'Josue Jared','Camacho','Rolon','josue','josue','MODN000821HPLRRCA7');
 /* Pisos*/
 INSERT INTO Piso VALUES(1);
 INSERT INTO Piso VALUES(2);
