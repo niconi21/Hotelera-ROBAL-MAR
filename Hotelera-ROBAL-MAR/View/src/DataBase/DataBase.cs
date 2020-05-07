@@ -466,5 +466,58 @@ namespace View.src.DataBase
                 }
             }
         }
+        public static List<HistorialGanancias> getHistorialGanancias()
+        {
+            using (var connection = new SqlConnection(_stringConnection))
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT " +
+                                           "Cliente.nombre, "+
+	                                       "Cliente.apepat, "+
+	                                       "Cliente.apemat, "+
+	                                       "Personal.nombre,"+
+	                                       "Personal.apepat,"+
+	                                       "Personal.apemat,"+
+	                                       "Habitacion.numero,"+
+	                                       "Historial.fechaInicio,"+
+	                                       "Historial.fechaFinal,"+
+	                                       "Historial.montoTotal "+
+                                            "FROM Historial " +
+                                            "INNER JOIN Cliente ON Historial.Cliente = Cliente.id " +
+                                            "INNER JOIN Habitacion ON Historial.habitacion = Habitacion.id " +
+                                            "INNER JOIN Personal ON Historial.Personal = Personal.id "+
+                                            "ORDER BY Historial.fechaFinal ASC";
+                    command.CommandType = CommandType.Text;
+                    var reader = command.ExecuteReader();
+                    List<HistorialGanancias> ganancias= null;
+                    if (reader.HasRows)
+                    {
+                        ganancias = new List<HistorialGanancias>();
+                        while (reader.Read())
+                        {
+                            try
+                            {
+                                var ganancia = new HistorialGanancias
+                                {
+                                    Cliente = reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2),
+                                    Empleado = reader.GetString(3) + " " + reader.GetString(4) + " " + reader.GetString(5),
+                                    Habitacion = reader.GetInt32(6),
+                                    FechaInicio = reader.GetDateTime(7),
+                                    FechaFinal = reader.GetDateTime(8),
+                                    Ganancia = (float)reader.GetSqlMoney(9).ToDouble()
+                                };
+                                ganancia.DiasHospedados = (int)(ganancia.FechaFinal - ganancia.FechaInicio).TotalDays;
+                                ganancias.Add(ganancia);
+                            }
+                            catch { }
+                        }
+                    }
+                    return ganancias;
+                }
+            }
+        }
     }
 }

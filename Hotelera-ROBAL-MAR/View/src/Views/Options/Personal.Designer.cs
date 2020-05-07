@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_registrarEmpleado = new System.Windows.Forms.Button();
             this.tablaPersonal = new System.Windows.Forms.DataGridView();
-            this.btn_modificarEmpleado = new System.Windows.Forms.Button();
             this.tipoPersonalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apepatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@
             this.usuaioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_modificarEmpleado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -124,21 +124,6 @@
             this.tablaPersonal.TabIndex = 10;
             this.tablaPersonal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaPersonal_CellClick);
             // 
-            // btn_modificarEmpleado
-            // 
-            this.btn_modificarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(161)))), ((int)(((byte)(215)))));
-            this.btn_modificarEmpleado.Enabled = false;
-            this.btn_modificarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_modificarEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.btn_modificarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btn_modificarEmpleado.Location = new System.Drawing.Point(390, 53);
-            this.btn_modificarEmpleado.Name = "btn_modificarEmpleado";
-            this.btn_modificarEmpleado.Size = new System.Drawing.Size(239, 28);
-            this.btn_modificarEmpleado.TabIndex = 11;
-            this.btn_modificarEmpleado.Text = "Modificar a un empleado";
-            this.btn_modificarEmpleado.UseVisualStyleBackColor = false;
-            this.btn_modificarEmpleado.Click += new System.EventHandler(this.btn_modificarEmpleado_Click);
-            // 
             // tipoPersonalDataGridViewTextBoxColumn
             // 
             this.tipoPersonalDataGridViewTextBoxColumn.DataPropertyName = "TipoPersonal";
@@ -178,6 +163,21 @@
             // personalBindingSource
             // 
             this.personalBindingSource.DataSource = typeof(View.src.Tools.Objects.Personal);
+            // 
+            // btn_modificarEmpleado
+            // 
+            this.btn_modificarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(161)))), ((int)(((byte)(215)))));
+            this.btn_modificarEmpleado.Enabled = false;
+            this.btn_modificarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_modificarEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_modificarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btn_modificarEmpleado.Location = new System.Drawing.Point(390, 53);
+            this.btn_modificarEmpleado.Name = "btn_modificarEmpleado";
+            this.btn_modificarEmpleado.Size = new System.Drawing.Size(239, 28);
+            this.btn_modificarEmpleado.TabIndex = 11;
+            this.btn_modificarEmpleado.Text = "Modificar a un empleado";
+            this.btn_modificarEmpleado.UseVisualStyleBackColor = false;
+            this.btn_modificarEmpleado.Click += new System.EventHandler(this.btn_modificarEmpleado_Click);
             // 
             // Personal
             // 

@@ -46,19 +46,7 @@ CREATE TABLE Historial(
 INSERT INTO Personal VALUES (0,'Nicolas','Moreno','Durán','niconi','niconi','MODN000821HPLRRCA7');
 	/* Personal*/
 INSERT INTO Personal VALUES (1,'Francisto Enrique','Alberto','Cordova','francisco','francisco','MODN000821HPLRRCA7');
-
-/* Direcciones*/
-	/* Gerente*/
-INSERT INTO DIreccion VALUES (0,'Teziutlán','Santa Rosa','Reforma','66',null,'Una cuadra arriba de la primaria','73887');
-	/* Personal*/
-INSERT INTO DIreccion VALUES (1,'yolo','yolo2','yolo3','1',null,'Yolo4','73880');
-
-/* Telefonos*/
-	/* Gerente*/
-INSERT INTO Telefono VALUES ('Personal','231-140-5938',0);
-	/* Personal*/
-INSERT INTO Telefono VALUES ('Personal','231-111-5938',1);
-
+INSERT INTO Personal VALUES (1,'Josue Jared','Camacho','Rolon','josue','jose','MODN000821HPLRRCA7');
 /* Pisos*/
 INSERT INTO Piso VALUES(1);
 INSERT INTO Piso VALUES(2);
@@ -123,34 +111,3 @@ INSERT INTO Habitacion VALUES(507,'Disponible','Individual',500.00,4);
 INSERT INTO Habitacion VALUES(508,'Disponible','Doble',1000.00,4);
 INSERT INTO Habitacion VALUES(509,'Disponible','Individual',500.00,4);
 INSERT INTO Habitacion VALUES(510,'Disponible','Triple',1500.00,4);
-
-select * from personal;
-select * from Direccion;
-SELECT * FROM Telefono;
-SELECT * FROM Habitacion;
-SELECT * FROM Piso;
-SELECT * FROM Cliente;
-SELECT * FROM Historial;
-
-SELECT 
-	Cliente.id,
-	Cliente.nombre, 
-	Cliente.apepat, 
-	Cliente.apemat, 
-	Cliente.curp, 
-	Habitacion.numero,
-	Historial.pagoPorDia,
-	Historial.fechaInicio
-	FROM Historial 
-	INNER JOIN Cliente ON Historial.Cliente = Cliente.id
-	INNER JOIN Habitacion ON Historial.habitacion = Habitacion.id
-	WHERE Historial.fechaFinal IS NULL;
-
-		Delete from Historial;
-		Delete from Cliente;
-		UPDATE Habitacion set estatus ='DIsponible';
-	
-	USE OUTDOOR;
-	USE Hotelera_ROBAL_MAR;
-	Drop database Hotelera_ROBAL_MAR;
-	

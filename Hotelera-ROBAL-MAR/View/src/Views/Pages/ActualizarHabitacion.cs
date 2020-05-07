@@ -95,21 +95,28 @@ namespace View
 
         private void btn_registrarEmpleado_Click(object sender, EventArgs e)
         {
-            String estatus = cb_estatus.SelectedItem.ToString();
-            String tipo = cb_tipo.SelectedItem.ToString();
-            float precio = float.Parse(txt_precio.Text);
-            this._habitacion.Estatus = estatus;
-            this._habitacion.Tipo = tipo;
-            this._habitacion.Precio = precio;
-            var actualizado = DataBase.updateHabitaciones(this._habitacion);
-            if (actualizado)
+            try
             {
-                MessageBox.Show("La habitación " + _habitacion.Numero + " ha sido actualizada");
-                _habitacion_option.comboBox1_SelectedIndexChanged(new Object(), new EventArgs());
+                String estatus = cb_estatus.SelectedItem.ToString();
+                String tipo = cb_tipo.SelectedItem.ToString();
+                float precio = float.Parse(txt_precio.Text);
+                this._habitacion.Estatus = estatus;
+                this._habitacion.Tipo = tipo;
+                this._habitacion.Precio = precio;
+                var actualizado = DataBase.updateHabitaciones(this._habitacion);
+                if (actualizado)
+                {
+                    MessageBox.Show("La habitación " + _habitacion.Numero + " ha sido actualizada");
+                    _habitacion_option.comboBox1_SelectedIndexChanged(new Object(), new EventArgs());
+                }
+                else
+                    MessageBox.Show("Hubo un error, intente de nuevo");
+                this.Dispose();
             }
-            else
-                MessageBox.Show("Hubo un error, intente de nuevo");
-            this.Dispose();
+            catch (HoteleraException ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
+        }
     }
 }

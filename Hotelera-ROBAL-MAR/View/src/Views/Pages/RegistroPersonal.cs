@@ -24,6 +24,7 @@ namespace View
         {
             InitializeComponent();
             _option = option;
+            cb_personal.SelectedIndex = 0;
             if (personal != null)
             {
                 _personal = personal;
@@ -37,52 +38,53 @@ namespace View
                 actualizado = true;
             }
         }
-
         private void pb_cerrar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
-
         private void pb_minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-
         private void btn_registrar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!actualizado)
                 {
-                    Personal personal = new Personal
+                    try
                     {
-                        TipoPersonal = cb_personal.SelectedIndex,
-                        Nombre = txt_nombre.Text,
-                        Apepat = txt_apepat.Text,
-                        Apemat = txt_apemat.Text,
-                        Usuaio = txt_usuario.Text,
-                        Clave = txt_clave.Text,
-                        Curp = txt_curp.Text
-                    };
+                        Personal personal = new Personal
+                        {
+                            TipoPersonal = cb_personal.SelectedIndex,
+                            Nombre = txt_nombre.Text,
+                            Apepat = txt_apepat.Text,
+                            Apemat = txt_apemat.Text,
+                            Usuaio = txt_usuario.Text,
+                            Clave = txt_clave.Text,
+                            Curp = txt_curp.Text
+                        };
 
-                    if (!DataBase.InsertPersonal(personal))
-                        MessageBox.Show("El empleado no fue registrado");
-                    else
-                        MessageBox.Show("El empleado fue registrado");
-                    _option.llenarPersonal();
-                    this.Dispose();
+                        if (!DataBase.InsertPersonal(personal))
+                            MessageBox.Show("El empleado no fue registrado");
+                        else
+                            MessageBox.Show("El empleado fue registrado");
+                        _option.llenarPersonal();
+                        this.Dispose();
+                    }
+                    catch (HoteleraException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
                 else
                 {

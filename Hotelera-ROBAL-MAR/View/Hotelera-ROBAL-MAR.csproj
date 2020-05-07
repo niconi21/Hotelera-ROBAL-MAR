@@ -58,6 +58,7 @@
     <Compile Include="src\Tools\Objects\Habitacion.cs" />
     <Compile Include="src\Tools\Objects\Historial.cs" />
     <Compile Include="src\Tools\Objects\HistorialCliente.cs" />
+    <Compile Include="src\Tools\Objects\HistorialGanancias.cs" />
     <Compile Include="src\Tools\Objects\Personal.cs" />
     <Compile Include="src\Tools\Objects\Piso.cs" />
     <Compile Include="src\Tools\UsuarioCache.cs" />
@@ -174,6 +175,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\View.src.Tools.Objects.HistorialCliente.datasource" />
+    <None Include="Properties\DataSources\View.src.Tools.Objects.HistorialGanancias.datasource" />
     <None Include="Properties\DataSources\View.src.Tools.Objects.Personal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

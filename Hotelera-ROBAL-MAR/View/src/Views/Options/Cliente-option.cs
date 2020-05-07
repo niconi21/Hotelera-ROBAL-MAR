@@ -49,36 +49,44 @@ namespace View.Options
         }
         private void btn_registrarCliente_Click(object sender, EventArgs e)
         {
-            src.Tools.Objects.Cliente cliente = new src.Tools.Objects.Cliente
+            try
             {
-                Nombre = txt_nombre.Text,
-                Apepat = txt_apepat.Text,
-                Apemat = txt_apemat.Text,
-                Curp = txt_curp.Text,
-            };
-            if (DataBase.InsertCliente(cliente))
-            {
-                cliente = DataBase.getCliente(cliente);
-                var fecha = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
-                src.Tools.Objects.Historial historial = new src.Tools.Objects.Historial
+                src.Tools.Objects.Cliente cliente = new src.Tools.Objects.Cliente
                 {
-                    Cliente = cliente.ID,
-                    Personal = UsuarioCache.ID,
-                    Habiacion = _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).ID,
-                    PagoDia = _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).Precio,
-                    MontoTotal = 0,
-                    FechaInicio = DateTime.Today
+                    Nombre = txt_nombre.Text,
+                    Apepat = txt_apepat.Text,
+                    Apemat = txt_apemat.Text,
+                    Curp = txt_curp.Text,
                 };
-                if (DataBase.InsertHistorial(historial))
+                if (DataBase.InsertCliente(cliente))
                 {
-                    _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).Estatus = Cadenas.OCUPADO;
-                    if (DataBase.updateHabitaciones(_habitaciones.ElementAt(cb_hsbitacion.SelectedIndex)))
+                    cliente = DataBase.getCliente(cliente);
+                    var fecha = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
+                    src.Tools.Objects.Historial historial = new src.Tools.Objects.Historial
                     {
-                        MessageBox.Show("El cliente ha sido registrado");
+                        Cliente = cliente.ID,
+                        Personal = UsuarioCache.ID,
+                        Habiacion = _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).ID,
+                        PagoDia = _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).Precio,
+                        MontoTotal = 0,
+                        FechaInicio = DateTime.Today
+                    };
+                    if (DataBase.InsertHistorial(historial))
+                    {
+                        _habitaciones.ElementAt(cb_hsbitacion.SelectedIndex).Estatus = Cadenas.OCUPADO;
+                        if (DataBase.updateHabitaciones(_habitaciones.ElementAt(cb_hsbitacion.SelectedIndex)))
+                        {
+                            MessageBox.Show("El cliente ha sido registrado");
+                        }
+                        llenarHabitaciones();
+                        llenarTablaClientes();
                     }
-                    llenarHabitaciones();
-                    llenarTablaClientes();
                 }
+            }
+            catch (HoteleraException ex)
+            {
+
+                MessageBox.Show(ex.ToString());
             }
 
         }
