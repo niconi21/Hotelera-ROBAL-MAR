@@ -14,7 +14,7 @@ En la linea 16 solo tienen que cambiar el server
 Los usuario por defecto son:
 <pre>
   Gerente: 
-    Nombre - Nicolas MOreno Durán
+    Nombre - Nicolas Moreno Durán
     Usuario - niconi 
     clave - niconi    
 </pre>
