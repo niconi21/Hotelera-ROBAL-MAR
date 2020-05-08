@@ -34,7 +34,7 @@ namespace View.Options
             {
                 foreach (var item in _habitaciones)
                 {
-                    this.cb_hsbitacion.Items.Add("Habitacion: " + item.Numero + " - Estatus: " + item.Estatus);
+                    this.cb_hsbitacion.Items.Add("Habitacion: " + item.Numero + " - Precio: $" + item.Precio + " - Tipo: " + item.Tipo);
                 }
                 this.cb_hsbitacion.SelectedIndex = 0;
                 vaciarCampos();

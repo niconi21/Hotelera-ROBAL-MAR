@@ -50,17 +50,17 @@
             this.cb_hsbitacion = new System.Windows.Forms.ComboBox();
             this.lbl_fechaInicial = new System.Windows.Forms.Label();
             this.tabla_clientes = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_actualizarCliente = new System.Windows.Forms.Button();
+            this.btn_registrarCliente = new System.Windows.Forms.Button();
+            this.lbl_precio = new System.Windows.Forms.Label();
+            this.btn_finalizarCliente = new System.Windows.Forms.Button();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.habitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pagoDiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historialClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_actualizarCliente = new System.Windows.Forms.Button();
-            this.btn_registrarCliente = new System.Windows.Forms.Button();
-            this.lbl_precio = new System.Windows.Forms.Label();
-            this.btn_finalizarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -227,9 +227,9 @@
             this.cb_hsbitacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.cb_hsbitacion.ForeColor = System.Drawing.SystemColors.Control;
             this.cb_hsbitacion.FormattingEnabled = true;
-            this.cb_hsbitacion.Location = new System.Drawing.Point(434, 87);
+            this.cb_hsbitacion.Location = new System.Drawing.Point(391, 87);
             this.cb_hsbitacion.Name = "cb_hsbitacion";
-            this.cb_hsbitacion.Size = new System.Drawing.Size(283, 23);
+            this.cb_hsbitacion.Size = new System.Drawing.Size(326, 23);
             this.cb_hsbitacion.TabIndex = 70;
             this.cb_hsbitacion.SelectedIndexChanged += new System.EventHandler(this.cb_hsbitacion_SelectedIndexChanged);
             // 
@@ -292,40 +292,6 @@
             this.tabla_clientes.Size = new System.Drawing.Size(542, 189);
             this.tabla_clientes.TabIndex = 72;
             this.tabla_clientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_clientes_CellClick);
-            // 
-            // clienteDataGridViewTextBoxColumn
-            // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            // 
-            // curpDataGridViewTextBoxColumn
-            // 
-            this.curpDataGridViewTextBoxColumn.DataPropertyName = "Curp";
-            this.curpDataGridViewTextBoxColumn.HeaderText = "Curp";
-            this.curpDataGridViewTextBoxColumn.Name = "curpDataGridViewTextBoxColumn";
-            // 
-            // habitacionDataGridViewTextBoxColumn
-            // 
-            this.habitacionDataGridViewTextBoxColumn.DataPropertyName = "Habitacion";
-            this.habitacionDataGridViewTextBoxColumn.HeaderText = "Habitacion";
-            this.habitacionDataGridViewTextBoxColumn.Name = "habitacionDataGridViewTextBoxColumn";
-            // 
-            // pagoDiaDataGridViewTextBoxColumn
-            // 
-            this.pagoDiaDataGridViewTextBoxColumn.DataPropertyName = "PagoDia";
-            this.pagoDiaDataGridViewTextBoxColumn.HeaderText = "PagoDia";
-            this.pagoDiaDataGridViewTextBoxColumn.Name = "pagoDiaDataGridViewTextBoxColumn";
-            // 
-            // fechaInicioDataGridViewTextBoxColumn
-            // 
-            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "FechaInicio";
-            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "FechaInicio";
-            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
-            // 
-            // historialClienteBindingSource
-            // 
-            this.historialClienteBindingSource.DataSource = typeof(View.src.Tools.Objects.HistorialCliente);
             // 
             // label8
             // 
@@ -392,6 +358,40 @@
             this.btn_finalizarCliente.UseCompatibleTextRendering = true;
             this.btn_finalizarCliente.UseVisualStyleBackColor = false;
             this.btn_finalizarCliente.Click += new System.EventHandler(this.btn_finalizarCliente_Click);
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            // 
+            // curpDataGridViewTextBoxColumn
+            // 
+            this.curpDataGridViewTextBoxColumn.DataPropertyName = "Curp";
+            this.curpDataGridViewTextBoxColumn.HeaderText = "Curp";
+            this.curpDataGridViewTextBoxColumn.Name = "curpDataGridViewTextBoxColumn";
+            // 
+            // habitacionDataGridViewTextBoxColumn
+            // 
+            this.habitacionDataGridViewTextBoxColumn.DataPropertyName = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.HeaderText = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.Name = "habitacionDataGridViewTextBoxColumn";
+            // 
+            // pagoDiaDataGridViewTextBoxColumn
+            // 
+            this.pagoDiaDataGridViewTextBoxColumn.DataPropertyName = "PagoDia";
+            this.pagoDiaDataGridViewTextBoxColumn.HeaderText = "PagoDia";
+            this.pagoDiaDataGridViewTextBoxColumn.Name = "pagoDiaDataGridViewTextBoxColumn";
+            // 
+            // fechaInicioDataGridViewTextBoxColumn
+            // 
+            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
+            // 
+            // historialClienteBindingSource
+            // 
+            this.historialClienteBindingSource.DataSource = typeof(View.src.Tools.Objects.HistorialCliente);
             // 
             // Cliente
             // 
