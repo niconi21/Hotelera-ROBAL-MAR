@@ -39,13 +39,13 @@ namespace View.src.Tools.Objects
         }
         public String Usuaio
         {
-            get { return _curp; }
-            set { if (value.Equals("")) throw new HoteleraException("Ingresa el usuario del empleado"); else this._curp = value; }
+            get { return _usuario; }
+            set { if (value.Equals("")) throw new HoteleraException("Ingresa el usuario del empleado"); else this._usuario = value; }
         }
         public String Clave
         {
-            get { return _curp; }
-            set { if (value.Equals("")) throw new HoteleraException("Ingresa la clave del empleado"); else this._curp = value; }
+            get { return _clave; }
+            set { if (value.Equals("")) throw new HoteleraException("Ingresa la clave del empleado"); else this._clave = value; }
         }
     }
 }

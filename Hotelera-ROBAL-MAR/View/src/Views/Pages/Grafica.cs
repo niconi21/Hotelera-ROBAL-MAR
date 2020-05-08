@@ -31,7 +31,11 @@ namespace View
                 else
                 {
                     _ganancias = DataBase.getHistorialGanancias();
-                    grafica_ganancias.Series.Clear();
+                    try
+                    {
+                        grafica_ganancias.Series.Clear();
+                    }
+                    catch { }
                     int i = 0;
                     foreach (var ganancia in _ganancias)
                     {

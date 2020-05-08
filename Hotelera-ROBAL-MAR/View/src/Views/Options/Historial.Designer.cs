@@ -33,17 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabla_ganancias = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_grafica = new System.Windows.Forms.Button();
-            this.Habitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl_ganancias = new System.Windows.Forms.Label();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Habitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFinalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diasHospedadosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gananciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historialGananciasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_grafica = new System.Windows.Forms.Button();
+            this.lbl_ganancias = new System.Windows.Forms.Label();
             this.historialGananciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabla_ganancias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialGananciasBindingSource1)).BeginInit();
@@ -101,49 +101,6 @@
             this.tabla_ganancias.Size = new System.Drawing.Size(700, 394);
             this.tabla_ganancias.TabIndex = 73;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 32);
-            this.label2.TabIndex = 74;
-            this.label2.Text = "Historial";
-            // 
-            // btn_grafica
-            // 
-            this.btn_grafica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
-            this.btn_grafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_grafica.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.btn_grafica.ForeColor = System.Drawing.Color.White;
-            this.btn_grafica.Location = new System.Drawing.Point(6, 59);
-            this.btn_grafica.Name = "btn_grafica";
-            this.btn_grafica.Size = new System.Drawing.Size(239, 28);
-            this.btn_grafica.TabIndex = 76;
-            this.btn_grafica.Text = "Ver grafica de las ganancias";
-            this.btn_grafica.UseVisualStyleBackColor = false;
-            this.btn_grafica.Click += new System.EventHandler(this.btn_grafica_Click);
-            // 
-            // Habitacion
-            // 
-            this.Habitacion.DataPropertyName = "Habitacion";
-            this.Habitacion.HeaderText = "Habitacion";
-            this.Habitacion.Name = "Habitacion";
-            // 
-            // lbl_ganancias
-            // 
-            this.lbl_ganancias.AutoSize = true;
-            this.lbl_ganancias.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.lbl_ganancias.ForeColor = System.Drawing.Color.White;
-            this.lbl_ganancias.Location = new System.Drawing.Point(287, 59);
-            this.lbl_ganancias.Name = "lbl_ganancias";
-            this.lbl_ganancias.Size = new System.Drawing.Size(201, 23);
-            this.lbl_ganancias.TabIndex = 77;
-            this.lbl_ganancias.Text = "Total de ganancias:";
-            // 
             // clienteDataGridViewTextBoxColumn
             // 
             this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
@@ -155,6 +112,12 @@
             this.empleadoDataGridViewTextBoxColumn.DataPropertyName = "Empleado";
             this.empleadoDataGridViewTextBoxColumn.HeaderText = "Atentido por";
             this.empleadoDataGridViewTextBoxColumn.Name = "empleadoDataGridViewTextBoxColumn";
+            // 
+            // Habitacion
+            // 
+            this.Habitacion.DataPropertyName = "Habitacion";
+            this.Habitacion.HeaderText = "Habitacion";
+            this.Habitacion.Name = "Habitacion";
             // 
             // fechaInicioDataGridViewTextBoxColumn
             // 
@@ -183,6 +146,43 @@
             // historialGananciasBindingSource1
             // 
             this.historialGananciasBindingSource1.DataSource = typeof(View.src.Tools.Objects.HistorialGanancias);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(126, 32);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "Historial";
+            // 
+            // btn_grafica
+            // 
+            this.btn_grafica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(162)))), ((int)(((byte)(43)))));
+            this.btn_grafica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_grafica.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.btn_grafica.ForeColor = System.Drawing.Color.White;
+            this.btn_grafica.Location = new System.Drawing.Point(6, 59);
+            this.btn_grafica.Name = "btn_grafica";
+            this.btn_grafica.Size = new System.Drawing.Size(239, 28);
+            this.btn_grafica.TabIndex = 76;
+            this.btn_grafica.Text = "Ver grafica de las ganancias";
+            this.btn_grafica.UseVisualStyleBackColor = false;
+            this.btn_grafica.Click += new System.EventHandler(this.btn_grafica_Click);
+            // 
+            // lbl_ganancias
+            // 
+            this.lbl_ganancias.AutoSize = true;
+            this.lbl_ganancias.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.lbl_ganancias.ForeColor = System.Drawing.Color.White;
+            this.lbl_ganancias.Location = new System.Drawing.Point(287, 59);
+            this.lbl_ganancias.Name = "lbl_ganancias";
+            this.lbl_ganancias.Size = new System.Drawing.Size(201, 23);
+            this.lbl_ganancias.TabIndex = 77;
+            this.lbl_ganancias.Text = "Total de ganancias:";
             // 
             // historialGananciasBindingSource
             // 

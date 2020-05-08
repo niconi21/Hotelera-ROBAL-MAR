@@ -26,6 +26,7 @@ namespace View.Options
         public void llenarPersonal()
         {
             _empleados = DataBase.getEmpleados();
+            
             tablaPersonal.DataSource = _empleados;
         }
         private void btn_registrarEmpleado_Click(object sender, EventArgs e)
@@ -36,9 +37,13 @@ namespace View.Options
 
         private void tablaPersonal_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _index = e.RowIndex;
-            _personal = _empleados.ElementAt(_index);
-            this.btn_modificarEmpleado.Enabled = true;
+            try
+            {
+                _index = e.RowIndex;
+                _personal = _empleados.ElementAt(_index);
+                this.btn_modificarEmpleado.Enabled = true;
+            }
+            catch { }
         }
 
         private void btn_modificarEmpleado_Click(object sender, EventArgs e)

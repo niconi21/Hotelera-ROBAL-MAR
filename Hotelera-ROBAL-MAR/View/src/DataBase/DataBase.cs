@@ -13,7 +13,7 @@ namespace View.src.DataBase
 {
     public static class DataBase
     {
-        private static String _stringConnection = "server=DESKTOP-OE9RG4S; database=Hotelera_ROBAL_MAR ; integrated security = true";
+        private static String _stringConnection = "server=localhost; database=Hotelera_ROBAL_MAR ; integrated security = true";
         public static bool login(String usuario, String clave)
         {
             using (var connection = new SqlConnection(_stringConnection))
@@ -509,7 +509,7 @@ namespace View.src.DataBase
                                     FechaFinal = reader.GetDateTime(8),
                                     Ganancia = (float)reader.GetSqlMoney(9).ToDouble()
                                 };
-                                ganancia.DiasHospedados = (int)(ganancia.FechaFinal - ganancia.FechaInicio).TotalDays;
+                                ganancia.DiasHospedados = (int)(ganancia.FechaFinal - ganancia.FechaInicio).TotalDays + 1;
                                 ganancias.Add(ganancia);
                             }
                             catch { }

@@ -42,7 +42,7 @@ namespace View.src.Views.Pages
         private int obtenerFecha()
         {
             _historial.FechaFinal = this.dateTimePicker1.Value;
-            var dias = (int)(_historial.FechaFinal - _historial.FechaInicio).TotalDays;
+            var dias =  (int)(_historial.FechaFinal - _historial.FechaInicio).TotalDays + 1;
             return dias;
         }
 
@@ -50,7 +50,6 @@ namespace View.src.Views.Pages
         {
             actualizarHabitacion();
             actualizarHistorial();
-            obtenerFecha();
             MessageBox.Show("El cliente ha sido dado de baja");
             _option.llenarHabitaciones();
             _option.llenarTablaClientes();
