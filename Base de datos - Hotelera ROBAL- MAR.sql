@@ -11,7 +11,7 @@ CREATE TABLE Habitacion(
 	numero INT NOT NULL,
 	estatus VARCHAR(13) NOT NULL,
 	tipo VARCHAR(10) NOT NULL,
-	precio SMALLMONEY NOT NULL,
+	precio MONEY NOT NULL,
 	piso INT NOT NULL CONSTRAINT fk_habitacion_esta_piso REFERENCES Piso);
 GO
 CREATE TABLE Personal(
@@ -36,8 +36,8 @@ CREATE TABLE Historial(
 	cliente INT NOT NULL CONSTRAINT fk_historial_tiene_cliente REFERENCES Cliente,
 	Personal INT NOT NULL CONSTRAINT fk_historial_tiene_Personal REFERENCES Personal, 
 	habitacion INT NOT NULL CONSTRAINT fk_historial_tiene_habitacion REFERENCES Habitacion,
-	pagoPorDia SMALLMoney NOT NULL,
-	montoTotal SMALLMoney NOT NULL,
+	pagoPorDia MONEY NOT NULL,
+	montoTotal MONEY NOT NULL,
 	fechaInicio DATE NOT NULL,
 	fechaFinal DATE);
 
