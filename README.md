@@ -31,3 +31,7 @@ Los usuario por defecto son:
 
 
 Nicolas tiene nivel de acceso de gerente y, Enrique y Jared tienen nicel de acceso de personal comun
+
+Se utilizó un hilo en la pagina de la grafica para poder actualizar esta cuando haya un cambio en los clientes,
+es decir, cuando un cliente se retira y se almacena en el historial, el cambio se ve reflejado en la grafica en
+tiempo real.
