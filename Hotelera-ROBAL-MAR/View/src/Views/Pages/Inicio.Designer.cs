@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_tipo = new System.Windows.Forms.Label();
+            this.label_nombre = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.pb_minimizar = new System.Windows.Forms.PictureBox();
             this.pb_cerrar = new System.Windows.Forms.PictureBox();
             this.panel_contenedor = new System.Windows.Forms.Panel();
-            this.label_nombre = new System.Windows.Forms.Label();
-            this.label_tipo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -76,6 +76,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(201, 560);
             this.panel1.TabIndex = 0;
+            // 
+            // label_tipo
+            // 
+            this.label_tipo.AutoSize = true;
+            this.label_tipo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
+            this.label_tipo.ForeColor = System.Drawing.Color.White;
+            this.label_tipo.Location = new System.Drawing.Point(3, 42);
+            this.label_tipo.Name = "label_tipo";
+            this.label_tipo.Size = new System.Drawing.Size(98, 12);
+            this.label_tipo.TabIndex = 6;
+            this.label_tipo.Text = "Tipo de personal";
+            // 
+            // label_nombre
+            // 
+            this.label_nombre.AutoSize = true;
+            this.label_nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
+            this.label_nombre.ForeColor = System.Drawing.Color.White;
+            this.label_nombre.Location = new System.Drawing.Point(3, 9);
+            this.label_nombre.Name = "label_nombre";
+            this.label_nombre.Size = new System.Drawing.Size(118, 12);
+            this.label_nombre.TabIndex = 5;
+            this.label_nombre.Text = "Nombre de personal";
             // 
             // flowLayoutPanel1
             // 
@@ -105,7 +127,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 16);
+            this.label2.Location = new System.Drawing.Point(32, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 46);
             this.label2.TabIndex = 4;
@@ -286,28 +308,6 @@
             this.panel_contenedor.Name = "panel_contenedor";
             this.panel_contenedor.Size = new System.Drawing.Size(724, 533);
             this.panel_contenedor.TabIndex = 3;
-            // 
-            // label_nombre
-            // 
-            this.label_nombre.AutoSize = true;
-            this.label_nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.label_nombre.ForeColor = System.Drawing.Color.White;
-            this.label_nombre.Location = new System.Drawing.Point(3, 9);
-            this.label_nombre.Name = "label_nombre";
-            this.label_nombre.Size = new System.Drawing.Size(118, 12);
-            this.label_nombre.TabIndex = 5;
-            this.label_nombre.Text = "Nombre de personal";
-            // 
-            // label_tipo
-            // 
-            this.label_tipo.AutoSize = true;
-            this.label_tipo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.label_tipo.ForeColor = System.Drawing.Color.White;
-            this.label_tipo.Location = new System.Drawing.Point(3, 42);
-            this.label_tipo.Name = "label_tipo";
-            this.label_tipo.Size = new System.Drawing.Size(98, 12);
-            this.label_tipo.TabIndex = 6;
-            this.label_tipo.Text = "Tipo de personal";
             // 
             // Inicio
             // 
